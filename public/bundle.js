@@ -1,1 +1,1 @@
-(()=>{const e=[{name:"Fill",age:32,gender:"Male",job:"Google",education:!0,lead:"SEO"},{name:"Erling",age:44,gender:"Male",job:"Microsoft",education:!0,lead:"Manager"},{name:"Alina",age:19,gender:"Female",job:"BBC",education:!1,lead:"Journalist"}].filter((e=>!0===e.education&&("SEO"===e.lead||"Manager"===e.lead)));console.log(e)})();
+(()=>{const e=[{summ:1e4,category:"job",type:"arrived"},{summ:2e3,category:"credits",type:"left"},{summ:1e3,category:"bankers",type:"left"}].filter((e=>"left"===e.type)).reduce(((e,t)=>e+t.summ),0);console.log(e)})();
