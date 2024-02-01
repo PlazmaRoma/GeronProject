@@ -72,26 +72,47 @@
 
 // console.log(filteredStHum);
 
-type ariv = "arrived" | "left";
+// type ariv = "arrived" | "left";
 
-interface TTransact {
-  summ: number;
-  category: string;
-  type: ariv;
-}
+// interface TTransact {
+//   summ: number;
+//   category: string;
+//   type: ariv;
+// }
 
-const summarrleft: TTransact[] = [
-    {summ: 10000, category: "job", type: "arrived"},
-    {summ: 2000, category: "credits", type: "left"},
-    {summ: 1000, category: "bankers", type: "left"}
-]
+// const summarrleft: TTransact[] = [
+//     {summ: 10000, category: "job", type: "arrived"},
+//     {summ: 2000, category: "credits", type: "left"},
+//     {summ: 1000, category: "bankers", type: "left"}
+// ]
 
-const descleft = summarrleft.filter(
-    (lefted) => lefted.type === "left"
-)
+// const descleft = summarrleft.filter(
+//     (lefted) => lefted.type === "left"
+// )
 
-const leftedsumm = descleft.reduce((summleft, left) => {
-    return summleft + left.summ
-},0)
+// const leftedsumm = descleft.reduce((summleft, left) => {
+//     return summleft + left.summ
+// },0)
 
-console.log(leftedsumm)
+// console.log(leftedsumm)
+
+import { Products, Tproducts } from "./src/scripts/types";
+const productsStore = new Products();
+console.log(productsStore.allStorages);
+
+const newProduct: Tproducts = {
+  product_name: "Видеокарта",
+  seller_company: "КомпМаг",
+  quantity: 10,
+  unit_price: 50,
+  supply_id: 999,
+  warehouse_id: 340,
+};
+
+productsStore.addProduct(102, newProduct);
+productsStore.sortByPrice(102, true);
+
+productsStore.sortByPrice(102, true)
+productsStore.sortByPrice(102, true)
+
+console.log(productsStore.getStorage(101));
