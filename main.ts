@@ -117,14 +117,14 @@
 
 // console.log(productsStore.getStorage(101));
 
-import { user } from "./src/scripts/13lessnFiles/Client";
+import * as Users from "./src/scripts/13lessnFiles/Client";
 import { BasketProduct, Order } from "./src/scripts/13lessnFiles/order-types";
-import { myAddress } from "./src/scripts/13lessnFiles/Delivery";
+import * as Address from "./src/scripts/13lessnFiles/Delivery";
 import { catalogue } from "./src/scripts/13lessnFiles/Catalogue";
 
 const order: Order = {
-  client: user,
-  delivery: { dateTime: new Date(), type: myAddress },
+  client: Users.user,
+  delivery: { dateTime: new Date(), type: Address.myAddress },
   basket: {
     products: [],
     total: 0,
@@ -148,4 +148,49 @@ order.basket = {
   ),
 };
 
-console.log(order);
+const order1: Order = {
+    client: Users.user,
+    delivery: { dateTime: new Date(), type: Address.myAddress },
+    basket: {
+      products: [],
+      total: 0,
+    },
+  };
+  
+  const order2: Order = {
+    client: Users.user2,
+    delivery: { dateTime: new Date(), type: Address.myAddress2 },
+    basket: {
+      products: [],
+      total: 0,
+    },
+  };
+  
+  const order3: Order = {
+    client: Users.user3,
+    delivery: { dateTime: new Date(), type: Address.myAddres3 },
+    basket: {
+      products: [],
+      total: 0,
+    },
+  };
+  
+  const order4: Order = {
+    client: Users.user4,
+    delivery: { dateTime: new Date(), type: Address.myAddress4 },
+    basket: {
+      products: [],
+      total: 0,
+    },
+  };
+  
+  const orders: Order[] = [order1, order2, order3, order4];
+  
+  function getRandomOrder(orders: Order[]): Order {
+    const randomIndex = Math.floor(Math.random() * orders.length);
+    return orders[randomIndex];
+  }
+  
+  const randomOrder = getRandomOrder(orders);
+  
+  console.log("Случайный заказ:", randomOrder);
