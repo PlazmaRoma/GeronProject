@@ -56,47 +56,48 @@
 //   sallary:string
 // }
 
-import { Storage } from "./data";
-import products from "../../json/product_data.json";
+// import { Storage } from "./data";
+// import products from "../../json/product_data.json";
 
-export type Tshop_data = {
-  city: string;
-  name: string;
-  address: string;
-  warehouse_id: number;
-  products: Tproducts[];
-};
+// export type Tshop_data = {
+//   city: string;
+//   name: string;
+//   address: string;
+//   warehouse_id: number;
+//   products: Tproducts[];
+// };
 
-export type Tproducts = {
-  product_name: string;
-  seller_company: string;
-  quantity: number;
-  unit_price: number;
-  supply_id: number;
-  warehouse_id: number;
-};
+// export type Tproducts = {
+//   product_name: string;
+//   seller_company: string;
+//   quantity: number;
+//   unit_price: number;
+//   supply_id: number;
+//   warehouse_id: number;
+// };
 
-export class Products extends Storage {
-  constructor() {
-    super();
-    products.forEach((item) => {
-      this.setProducts(item.warehouse_id, item);
-    });
-  }
+// export class Products extends Storage {
+//   constructor() {
+//     super();
+//     products.forEach((item) => {
+//       this.setProducts(item.warehouse_id, item);
+//     });
+//   }
 
-  addProduct(warehouseId: number, newProduct: Tproducts) {
-    const storage = this.getStorage(warehouseId);
-    storage.products.push(newProduct);
-    this.updateStorage = storage;
-  }
+//   addProduct(warehouseId: number, newProduct: Tproducts) {
+//     const storage = this.getStorage(warehouseId);
+//     storage.products.push(newProduct);
+//     this.updateStorage = storage;
+//   }
 
-  sortByPrice(warehouseId: number, ascending: boolean = true) {
-    const storage = this.getStorage(warehouseId);
+//   sortByPrice(warehouseId: number, ascending: boolean = true) {
+//     const storage = this.getStorage(warehouseId);
 
-    storage.products.sort((a, b) =>
-      ascending ? a.unit_price - b.unit_price : b.unit_price - a.unit_price
-    );
+//     storage.products.sort((a, b) =>
+//       ascending ? a.unit_price - b.unit_price : b.unit_price - a.unit_price
+//     );
 
-    this.updateStorage = storage;
-  }
-}
+//     this.updateStorage = storage;
+//   }
+// }
+

@@ -96,23 +96,56 @@
 
 // console.log(leftedsumm)
 
-import { Products, Tproducts } from "./src/scripts/types";
-const productsStore = new Products();
-console.log(productsStore.allStorages);
+// import { Products, Tproducts } from "./src/scripts/types";
+// const productsStore = new Products();
+// console.log(productsStore.allStorages);
 
-const newProduct: Tproducts = {
-  product_name: "Видеокарта",
-  seller_company: "КомпМаг",
-  quantity: 10,
-  unit_price: 50,
-  supply_id: 999,
-  warehouse_id: 340,
+// const newProduct: Tproducts = {
+//   product_name: "Видеокарта",
+//   seller_company: "КомпМаг",
+//   quantity: 10,
+//   unit_price: 50,
+//   supply_id: 999,
+//   warehouse_id: 340,
+// };
+
+// productsStore.addProduct(102, newProduct);
+// productsStore.sortByPrice(102, true);
+
+// productsStore.sortByPrice(102, true)
+// productsStore.sortByPrice(102, true)
+
+// console.log(productsStore.getStorage(101));
+
+import { user } from "./src/scripts/13lessnFiles/Client";
+import { BasketProduct, Order } from "./src/scripts/13lessnFiles/order-types";
+import { myAddress } from "./src/scripts/13lessnFiles/Delivery";
+import { catalogue } from "./src/scripts/13lessnFiles/Catalogue";
+
+const order: Order = {
+  client: user,
+  delivery: { dateTime: new Date(), type: myAddress },
+  basket: {
+    products: [],
+    total: 0,
+  },
 };
 
-productsStore.addProduct(102, newProduct);
-productsStore.sortByPrice(102, true);
+const products: BasketProduct[] = [];
 
-productsStore.sortByPrice(102, true)
-productsStore.sortByPrice(102, true)
+for (let index = 0; index < Array(5).length; index++) {
+  const random = Math.floor(Math.random() * 50);
 
-console.log(productsStore.getStorage(101));
+  const selectProduct = catalogue.products[random];
+
+  products.push(selectProduct);
+}
+
+order.basket = {
+  products,
+  total: products.reduce(
+    (sum, currentProduct) => sum + currentProduct.price, 0
+  ),
+};
+
+console.log(order);

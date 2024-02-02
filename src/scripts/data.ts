@@ -538,36 +538,36 @@
 //   ],
 // };
 
-import shop_data from "../../json/shop_data.json";
+// import shop_data from "../../json/shop_data.json";
 
-import {Tproducts, Tshop_data } from "./types";
+// import {Tproducts, Tshop_data } from "./types";
 
-export class Storage {
-  private _data: Tshop_data[];
+// export class Storage {
+//   private _data: Tshop_data[];
 
-  constructor() {
-    this._data = shop_data;
-  }
+//   constructor() {
+//     this._data = shop_data;
+//   }
 
-  get allStorages() {
-    return this._data;
-  }
+//   get allStorages() {
+//     return this._data;
+//   }
 
-  protected set updateStorage(storage: Tshop_data) {
-    this._data = this._data.map((item) => {
-      if (item.warehouse_id !== storage.warehouse_id) return item;
+//   protected set updateStorage(storage: Tshop_data) {
+//     this._data = this._data.map((item) => {
+//       if (item.warehouse_id !== storage.warehouse_id) return item;
 
-      return storage;
-    });
-  }
+//       return storage;
+//     });
+//   }
 
-  getStorage(id: number): Tshop_data {
-    return this._data.find((item) => item.warehouse_id === id);
-  }
+//   getStorage(id: number): Tshop_data {
+//     return this._data.find((item) => item.warehouse_id === id);
+//   }
 
-  protected setProducts(id: number, products: Tproducts) {
-    const storage = this.getStorage(id);
-    storage.products.push(products);
-    this.updateStorage = storage;
-  }
-}
+//   protected setProducts(id: number, products: Tproducts) {
+//     const storage = this.getStorage(id);
+//     storage.products.push(products);
+//     this.updateStorage = storage;
+//   }
+// }
