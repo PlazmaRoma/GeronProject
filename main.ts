@@ -117,80 +117,98 @@
 
 // console.log(productsStore.getStorage(101));
 
-import * as Users from "./src/scripts/13lessnFiles/Client";
-import { BasketProduct, Order } from "./src/scripts/13lessnFiles/order-types";
-import * as Address from "./src/scripts/13lessnFiles/Delivery";
-import { catalogue } from "./src/scripts/13lessnFiles/Catalogue";
+// import * as Users from "./src/scripts/13lessnFiles/Client";
+// import { BasketProduct, Order } from "./src/scripts/13lessnFiles/order-types";
+// import * as Address from "./src/scripts/13lessnFiles/Delivery";
+// import { catalogue } from "./src/scripts/13lessnFiles/Catalogue";
 
-const order: Order = {
-  client: Users.user,
-  delivery: { dateTime: new Date(), type: Address.myAddress },
-  basket: {
-    products: [],
-    total: 0,
-  },
+// const order: Order = {
+//   client: Users.user,
+//   delivery: { dateTime: new Date(), type: Address.myAddress },
+//   basket: {
+//     products: [],
+//     total: 0,
+//   },
+// };
+
+// const products: BasketProduct[] = [];
+
+// for (let index = 0; index < Array(5).length; index++) {
+//   const random = Math.floor(Math.random() * 50);
+
+//   const selectProduct = catalogue.products[random];
+
+//   products.push(selectProduct);
+// }
+
+// order.basket = {
+//   products,
+//   total: products.reduce(
+//     (sum, currentProduct) => sum + currentProduct.price, 0
+//   ),
+// };
+
+// const order1: Order = {
+//     client: Users.user,
+//     delivery: { dateTime: new Date(), type: Address.myAddress },
+//     basket: {
+//       products: [],
+//       total: 0,
+//     },
+//   };
+
+//   const order2: Order = {
+//     client: Users.user2,
+//     delivery: { dateTime: new Date(), type: Address.myAddress2 },
+//     basket: {
+//       products: [],
+//       total: 0,
+//     },
+//   };
+
+//   const order3: Order = {
+//     client: Users.user3,
+//     delivery: { dateTime: new Date(), type: Address.myAddres3 },
+//     basket: {
+//       products: [],
+//       total: 0,
+//     },
+//   };
+
+//   const order4: Order = {
+//     client: Users.user4,
+//     delivery: { dateTime: new Date(), type: Address.myAddress4 },
+//     basket: {
+//       products: [],
+//       total: 0,
+//     },
+//   };
+
+//   const orders: Order[] = [order1, order2, order3, order4];
+
+//   function getRandomOrder(orders: Order[]): Order {
+//     const randomIndex = Math.floor(Math.random() * orders.length);
+//     return orders[randomIndex];
+//   }
+
+//   const randomOrder = getRandomOrder(orders);
+
+//   console.log("Случайный заказ:", randomOrder);
+
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
+
+const generateRandomNumber = (min: number, max: number) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const products: BasketProduct[] = [];
+const day = 25;
+const year = 23;
 
-for (let index = 0; index < Array(5).length; index++) {
-  const random = Math.floor(Math.random() * 50);
+const randomMonth = generateRandomNumber(1, 12);
 
-  const selectProduct = catalogue.products[random];
-
-  products.push(selectProduct);
-}
-
-order.basket = {
-  products,
-  total: products.reduce(
-    (sum, currentProduct) => sum + currentProduct.price, 0
-  ),
-};
-
-const order1: Order = {
-    client: Users.user,
-    delivery: { dateTime: new Date(), type: Address.myAddress },
-    basket: {
-      products: [],
-      total: 0,
-    },
-  };
-  
-  const order2: Order = {
-    client: Users.user2,
-    delivery: { dateTime: new Date(), type: Address.myAddress2 },
-    basket: {
-      products: [],
-      total: 0,
-    },
-  };
-  
-  const order3: Order = {
-    client: Users.user3,
-    delivery: { dateTime: new Date(), type: Address.myAddres3 },
-    basket: {
-      products: [],
-      total: 0,
-    },
-  };
-  
-  const order4: Order = {
-    client: Users.user4,
-    delivery: { dateTime: new Date(), type: Address.myAddress4 },
-    basket: {
-      products: [],
-      total: 0,
-    },
-  };
-  
-  const orders: Order[] = [order1, order2, order3, order4];
-  
-  function getRandomOrder(orders: Order[]): Order {
-    const randomIndex = Math.floor(Math.random() * orders.length);
-    return orders[randomIndex];
-  }
-  
-  const randomOrder = getRandomOrder(orders);
-  
-  console.log("Случайный заказ:", randomOrder);
+console.log(
+  format(new Date(), `${day}.${randomMonth}.${year}`, { locale: ru })
+);
